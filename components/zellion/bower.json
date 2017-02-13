@@ -1,0 +1,30 @@
+{
+  "name": "zellion",
+  "version": "0.0.1",
+  "homepage": "https://github.com/zellion-company/zellion",
+  "authors": [
+    "Zellion <zellion.company@gmail.com>"
+  ],
+  "description": "jQuery tabs plugin",
+  "main": [
+      "/dist/js/zellion.tabs.js",
+      "/dist/css/zellion.tabs.css"
+  ],
+  "keywords": [
+    "zellion",
+    "tabs",
+    "plugin",
+    "jquery"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">=1.7"
+  }
+}

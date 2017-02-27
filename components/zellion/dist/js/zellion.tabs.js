@@ -11,12 +11,18 @@
     // интервал смены вкладок
     interval: 5000,
     // анимация смены вкладок
-    animation: 'fade',
+    animation: 'show',
+    // Направление анимации slide
+    direction: 'left',
+    // Размах анимации slide
+    scope: '200px',
     // скорость анимации смены вкладок
-    speed: 400,
+    speed: 300,
     // возможность записывать location.hash
     hash: false,
+
     beforeChange: function() {},
+
     afterChange: function() {}
   };
 
@@ -30,13 +36,40 @@
       var $this = $(this);
       var hashLink = window.location.hash;
       var hashLinkSlice = hashLink.slice(1);
-      if ((window.location.hash !== '' && settings.hash === true) && ($this.find('.tab__link[href=' + hashLink + ']').length == 1)) {
-        $this.find('.tab__link[href=' + hashLink + ']').closest('.tab__item').addClass('active');
-        $this.closest('.tab').find('#' + hashLinkSlice + '').addClass('block');
+      if (settings.afterChange && typeof settings.afterChange === 'function') {
+          var callback = settings.afterChange
+      }
+      if ((window.location.hash !== '' && settings.hash === true) && ($this.find('.tab__link[href="' + hashLink + '"]').length == 1)) {
+        $this.find('.tab__link[href="' + hashLink + '"]').closest('.tab__item').addClass('active');
+        $this.find('#' + hashLinkSlice + '').addClass('block');
       } else {
         $this.find('.tab__item').eq(settings.defaultTab).addClass('active');
         $this.find('.tab__content').eq(settings.defaultTab).addClass('block');
       }
+      if (settings.animation === 'slide') {
+        if (settings.direction === 'top') {
+          $this.find('.tab__content:not(.block)').css({
+            opacity: 0,
+            top: settings.scope
+          });
+        } else if (settings.direction === 'right') {
+          $this.find('.tab__content:not(.block)').css({
+            opacity: 0,
+            right: settings.scope
+          });
+        } else if (settings.direction === 'bottom') {
+          $this.find('.tab__content:not(.block)').css({
+            opacity: 0,
+            bottom: settings.scope
+          });
+        } else if (settings.direction === 'left') {
+          $this.find('.tab__content:not(.block)').css({
+            opacity: 0,
+            left: settings.scope
+          });
+        }
+      }
+
 
       function tabInit() {
         $this.on('click', '.tab__link', function(event, cb) {
@@ -49,22 +82,122 @@
           if (!($(this).closest('.tab__item').hasClass('active'))) {
             settings.beforeChange()
             $(this).closest('.tab__item').addClass('active').siblings().removeClass('active');
-            if (settings.animation === 'fade') {
-              $(this).closest('.tab').find('.tab__content').siblings().stop().fadeOut(0);
-              $(this).closest('.tab').find('.tab__content[id=' + tabLinkSlice + ']').stop().fadeIn(settings.speed);
-            } else if (settings.animation === 'show') {
+            if (settings.animation === 'show') {
               $(this).closest('.tab').find('.tab__content').siblings().stop().hide();
-              $(this).closest('.tab').find('.tab__content[id=' + tabLinkSlice + ']').stop().show();
-            }
-            setTimeout(function() {
-              cb = settings.afterChange
-              if (cb && typeof cb === 'function') {
-                cb()
+              $(this).closest('.tab').find('.tab__content[id=' + tabLinkSlice + ']').stop().show().animate({
+                opacity: 1
+              }, 100, callback);
+            } else if (settings.animation === 'fade') {
+              function slideNew() {
+                $this.find('.tab__content').css({
+                  opacity: 0,
+                  display: 'none'
+                });
+                $this.find('.tab__content[id=' + tabLinkSlice + ']').stop().addClass('block').css('display', 'block');
+                $this.find('.tab__content[id=' + tabLinkSlice + ']').stop().animate({
+                  opacity: 1
+                }, settings.speed, callback)
               }
-            }, settings.speed);
+              function slideOld() {
+                $this.find('.tab__content.block').stop().animate({
+                  opacity: 0
+                }, settings.speed, function() {
+                  $this.find('.tab__content.block').stop().removeClass('block').css({
+                    display: 'none',
+                  });
+                  slideNew();
+                });
+              }
+              slideOld()
+            } else if (settings.direction === 'top') {
+              function slideNew() {
+                $this.find('.tab__content[id=' + tabLinkSlice + ']').stop().addClass('block').css('display', 'block');
+                $this.find('.tab__content[id=' + tabLinkSlice + ']').stop().animate({
+                  top: '0',
+                  opacity: 1
+                }, settings.speed, callback)
+              }
+              function slideOld() {
+                $this.find('.tab__content.block').stop().animate({
+                  top: '-'+settings.scope+'',
+                  opacity: 0
+                }, settings.speed, function() {
+                  $this.find('.tab__content.block').stop().removeClass('block').css({
+                    display: 'none',
+                    top: settings.scope
+                  });
+                  slideNew();
+                });
+              }
+              slideOld()
+            } else if (settings.direction === 'right') {
+              function slideNew() {
+                $this.find('.tab__content[id=' + tabLinkSlice + ']').stop().addClass('block').css('display', 'block');
+                $this.find('.tab__content[id=' + tabLinkSlice + ']').stop().animate({
+                  right: '0',
+                  opacity: 1
+                }, settings.speed, callback)
+              }
+              function slideOld() {
+                $this.find('.tab__content.block').stop().animate({
+                  right: '-'+settings.scope+'',
+                  opacity: 0
+                }, settings.speed, function() {
+                  $this.find('.tab__content.block').stop().removeClass('block').css({
+                    display: 'none',
+                    right: settings.scope
+                  });
+                  slideNew();
+                });
+              }
+              slideOld()
+            } else if (settings.direction === 'bottom') {
+              function slideNew() {
+                $this.find('.tab__content[id=' + tabLinkSlice + ']').stop().addClass('block').css('display', 'block');
+                $this.find('.tab__content[id=' + tabLinkSlice + ']').stop().animate({
+                  bottom: '0',
+                  opacity: 1
+                }, settings.speed, callback)
+              }
+              function slideOld() {
+                $this.find('.tab__content.block').stop().animate({
+                  bottom: '-'+settings.scope+'',
+                  opacity: 0
+                }, settings.speed, function() {
+                  $this.find('.tab__content.block').stop().removeClass('block').css({
+                    display: 'none',
+                    bottom: settings.scope
+                  });
+                  slideNew();
+                });
+              }
+              slideOld()
+            } else if (settings.direction === 'left') {
+              function slideNew() {
+                $this.find('.tab__content[id=' + tabLinkSlice + ']').stop().addClass('block').css('display', 'block');
+                $this.find('.tab__content[id=' + tabLinkSlice + ']').stop().animate({
+                  left: '0',
+                  opacity: 1
+                }, settings.speed, callback)
+              }
+              function slideOld() {
+                $this.find('.tab__content.block').stop().animate({
+                  left: '-'+settings.scope+'',
+                  opacity: 0
+                }, settings.speed, function() {
+                  $this.find('.tab__content.block').stop().removeClass('block').css({
+                    display: 'none',
+                    left: settings.scope
+                  });
+                  slideNew();
+                });
+              }
+              slideOld()
+            }
           }
         });
       }
+
 
       if (settings.autoplay === true) {
         function tabAutoplay() {

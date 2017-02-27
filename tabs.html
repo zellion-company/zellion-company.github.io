@@ -103,7 +103,7 @@
               </div>
             </div>
           </div><pre class="pre">$('selector').zellionTabs({
-  defaultTab: 4
+  animation: 'fade'
 });</pre>
         </section>
         <section class="section" id="section-3">
@@ -138,6 +138,113 @@
               </div>
             </div>
           </div><pre class="pre">$('selector').zellionTabs({
+  animation: 'slide',
+  direction: 'left'
+});</pre>
+        </section>
+        <section class="section" id="section-4">
+          <div class="tab">
+            <ul class="tab__list">
+              <li class="tab__item"><a class="tab__link" href="#home-4">home</a>
+              </li>
+              <li class="tab__item"><a class="tab__link" href="#archive-4">archive</a>
+              </li>
+              <li class="tab__item"><a class="tab__link" href="#analytics-4">analytics</a>
+              </li>
+              <li class="tab__item"><a class="tab__link" href="#upload-4">upload</a>
+              </li>
+              <li class="tab__item"><a class="tab__link" href="#settings-4">settings</a>
+              </li>
+            </ul>
+            <div class="tab__container">
+              <div class="tab__content" id="home-4">
+                <div class="tab__value">1</div>
+              </div>
+              <div class="tab__content" id="archive-4">
+                <div class="tab__value">2</div>
+              </div>
+              <div class="tab__content" id="analytics-4">
+                <div class="tab__value">3</div>
+              </div>
+              <div class="tab__content" id="upload-4">
+                <div class="tab__value">4</div>
+              </div>
+              <div class="tab__content" id="settings-4">
+                <div class="tab__value">5</div>
+              </div>
+            </div>
+          </div><pre class="pre">$('selector').zellionTabs({
+  animation: 'slide',
+  direction: 'bottom'
+});</pre>
+        </section>
+        <section class="section" id="section-5">
+          <div class="tab">
+            <ul class="tab__list">
+              <li class="tab__item"><a class="tab__link" href="#home-5">home</a>
+              </li>
+              <li class="tab__item"><a class="tab__link" href="#archive-5">archive</a>
+              </li>
+              <li class="tab__item"><a class="tab__link" href="#analytics-5">analytics</a>
+              </li>
+              <li class="tab__item"><a class="tab__link" href="#upload-5">upload</a>
+              </li>
+              <li class="tab__item"><a class="tab__link" href="#settings-5">settings</a>
+              </li>
+            </ul>
+            <div class="tab__container">
+              <div class="tab__content" id="home-5">
+                <div class="tab__value">1</div>
+              </div>
+              <div class="tab__content" id="archive-5">
+                <div class="tab__value">2</div>
+              </div>
+              <div class="tab__content" id="analytics-5">
+                <div class="tab__value">3</div>
+              </div>
+              <div class="tab__content" id="upload-5">
+                <div class="tab__value">4</div>
+              </div>
+              <div class="tab__content" id="settings-5">
+                <div class="tab__value">5</div>
+              </div>
+            </div>
+          </div><pre class="pre">$('selector').zellionTabs({
+  defaultTab: 4
+});</pre>
+        </section>
+        <section class="section" id="section-6">
+          <div class="tab">
+            <ul class="tab__list">
+              <li class="tab__item"><a class="tab__link" href="#home-6">home</a>
+              </li>
+              <li class="tab__item"><a class="tab__link" href="#archive-6">archive</a>
+              </li>
+              <li class="tab__item"><a class="tab__link" href="#analytics-6">analytics</a>
+              </li>
+              <li class="tab__item"><a class="tab__link" href="#upload-6">upload</a>
+              </li>
+              <li class="tab__item"><a class="tab__link" href="#settings-6">settings</a>
+              </li>
+            </ul>
+            <div class="tab__container">
+              <div class="tab__content" id="home-6">
+                <div class="tab__value">1</div>
+              </div>
+              <div class="tab__content" id="archive-6">
+                <div class="tab__value">2</div>
+              </div>
+              <div class="tab__content" id="analytics-6">
+                <div class="tab__value">3</div>
+              </div>
+              <div class="tab__content" id="upload-6">
+                <div class="tab__value">4</div>
+              </div>
+              <div class="tab__content" id="settings-6">
+                <div class="tab__value">5</div>
+              </div>
+            </div>
+          </div><pre class="pre">$('selector').zellionTabs({
   autoplay: true
 });</pre>
         </section>
@@ -146,14 +253,20 @@
           <p class="html">bower install zellion --save</p>
         </div>
         <div class="container">
-          <h3 class="title">Required Markup</h3><pre class="html"><span class="tag">&lt;div</span> <span class="sel">class=</span><span class="name">"tab"</span><span class="tag">&gt;</span>
-  <span class="tag">&lt;ul</span> <span class="sel">class=</span><span class="name">"tab__list"</span><span class="tag">&gt;</span>
-    <span class="tag">&lt;li</span> <span class="sel">class=</span><span class="name">"tab__item"</span><span class="tag">&gt;</span><span class="tag">&lt;a</span> <span class="sel">href=</span><span class="name">"#tab-1"</span> <span class="sel">class=</span><span class="name">"tab__link"</span><span class="tag">&gt;</span>Tab 1<span class="tag">&lt;a&gt;</span><span class="tag">&lt;li&gt;</span>
-    <span class="tag">&lt;li</span> <span class="sel">class=</span><span class="name">"tab__item"</span><span class="tag">&gt;</span><span class="tag">&lt;a</span> <span class="sel">href=</span><span class="name">"#tab-2"</span> <span class="sel">class=</span><span class="name">"tab__link"</span><span class="tag">&gt;</span>Tab 2<span class="tag">&lt;a&gt;</span><span class="tag">&lt;li&gt;</span>
-  <span class="tag">&lt;ul&gt;</span>
-  <span class="tag">&lt;div</span> <span class="sel">class=</span><span class="name">"tab__container"</span><span class="tag">&gt;</span>
-    <span class="tag">&lt;div</span> <span class="sel">class=</span><span class="name">"tab__content"</span> <span class="id">id=</span><span class="name">"tab-1"</span><span class="tag">&gt;</span><span class="tag">&lt;div&gt;</span>
-    <span class="tag">&lt;div</span> <span class="sel">class=</span><span class="name">"tab__content"</span> <span class="id">id=</span><span class="name">"tab-2"</span><span class="tag">&gt;</span><span class="tag">&lt;div&gt;</span>
+          <h3 class="title">Connection scripts and styles</h3><pre class="html"><span class="tag">&lt;link</span> <span class="sel">href=</span><span class="name">"/path/to/zellion.css",</span> <span class="sel">rel=</span><span class="name">"stylesheet"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;script</span> <span class="sel">src=</span><span class="name">"/path/to/zellion.tabs.js"</span><span class="tag">&gt;</span><span class="tag">&lt;script&gt;</span></pre>
+        </div>
+        <div class="container">
+          <h3 class="title">Required Markup</h3><pre class="html"><span class="tag">&lt;div</span> <span class="sel">class=</span><span class="name">"Your selector which is initialized with Zellion"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="sel">class=</span><span class="name">"tab"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;ul</span> <span class="sel">class=</span><span class="name">"tab__list"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;li</span> <span class="sel">class=</span><span class="name">"tab__item"</span><span class="tag">&gt;</span><span class="tag">&lt;a</span> <span class="sel">href=</span><span class="name">"#tab-1"</span> <span class="sel">class=</span><span class="name">"tab__link"</span><span class="tag">&gt;</span>Tab 1<span class="tag">&lt;a&gt;</span><span class="tag">&lt;li&gt;</span>
+      <span class="tag">&lt;li</span> <span class="sel">class=</span><span class="name">"tab__item"</span><span class="tag">&gt;</span><span class="tag">&lt;a</span> <span class="sel">href=</span><span class="name">"#tab-2"</span> <span class="sel">class=</span><span class="name">"tab__link"</span><span class="tag">&gt;</span>Tab 2<span class="tag">&lt;a&gt;</span><span class="tag">&lt;li&gt;</span>
+    <span class="tag">&lt;ul&gt;</span>
+    <span class="tag">&lt;div</span> <span class="sel">class=</span><span class="name">"tab__container"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;div</span> <span class="sel">class=</span><span class="name">"tab__content"</span> <span class="id">id=</span><span class="name">"tab-1"</span><span class="tag">&gt;</span><span class="tag">&lt;div&gt;</span>
+      <span class="tag">&lt;div</span> <span class="sel">class=</span><span class="name">"tab__content"</span> <span class="id">id=</span><span class="name">"tab-2"</span><span class="tag">&gt;</span><span class="tag">&lt;div&gt;</span>
+    <span class="tag">&lt;div&gt;</span>
   <span class="tag">&lt;div&gt;</span>
 <span class="tag">&lt;div&gt;</span></pre>
         </div>
@@ -175,14 +288,26 @@
             <div class="tr">
               <div class="td">animation</div>
               <div class="td">string</div>
-              <div class="td">"fade", "show" ("fade")</div>
+              <div class="td">"show", "fade", "slide" ("show")</div>
               <div class="td">Animation tab change.</div>
             </div>
             <div class="tr">
               <div class="td">speed</div>
               <div class="td">number</div>
-              <div class="td">400</div>
+              <div class="td">300</div>
               <div class="td">Animation speed change tabs.</div>
+            </div>
+            <div class="tr">
+              <div class="td">direction</div>
+              <div class="td">string</div>
+              <div class="td">"left", "top", "right", "bottom" ("left")</div>
+              <div class="td">Direction animation. Works only if you selected animation: "slide"</div>
+            </div>
+            <div class="tr">
+              <div class="td">scope</div>
+              <div class="td">string</div>
+              <div class="td">"200px"</div>
+              <div class="td">Scope animation. Works only if you selected animation: "slide"</div>
             </div>
             <div class="tr">
               <div class="td">autoplay</div>
@@ -205,8 +330,14 @@
             <div class="tr">
               <div class="td">beforeChange</div>
               <div class="td">function</div>
-              <div class="td">false</div>
-              <div class="td">Autoplay tab change.</div>
+              <div class="td"></div>
+              <div class="td">A function that is played before animation</div>
+            </div>
+            <div class="tr">
+              <div class="td">afterChange</div>
+              <div class="td">function</div>
+              <div class="td"></div>
+              <div class="td">A function that is played after animation</div>
             </div>
           </div>
         </div>
